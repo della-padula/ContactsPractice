@@ -13,6 +13,24 @@ import Alamofire
 enum TabType {
     case name
     case job
+    
+    func parameterName() -> String {
+        switch self {
+        case .name:
+            return "USER_NM"
+        case .job:
+            return "USER_JOB"
+        }
+    }
+    
+    func url() -> String {
+        switch self {
+        case .name:
+            return "http://3.131.52.2:3000/getPersonInfo_byName"
+        case .job:
+            return "http://3.131.52.2:3000/getPersonInfo_byJob"
+        }
+    }
 }
 
 class PhoneBookViewController: UIViewController {
@@ -161,6 +179,9 @@ class PhoneBookViewController: UIViewController {
         searchStackView.addArrangedSubview(searchTextField)
         searchStackView.addArrangedSubview(searchButton)
         
+        searchTextField.addTarget(self, action: #selector(onEditSearchField(sender:)), for: .editingDidBegin)
+        searchTextField.addTarget(self, action: #selector(onEditClosedSearchField(sender:)), for: .editingDidEndOnExit)
+        
         searchStackView.snp.makeConstraints { make in
             make.height.equalTo(36)
         }
@@ -190,6 +211,18 @@ class PhoneBookViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-16)
         }
         
+        searchButton.addTarget(self, action: #selector(onClickSearchButton(sender:)), for: .touchUpInside)
+        
+    }
+    
+    @objc
+    private func onEditSearchField(sender: UITextField) {
+        searchBottomBar.backgroundColor = UIColor(hex: "#1F1F20", alpha: 1.0)
+    }
+    
+    @objc
+    private func onEditClosedSearchField(sender: UITextField) {
+        searchBottomBar.backgroundColor = UIColor(hex: "#DDDDDD", alpha: 1.0)
     }
     
     @objc
@@ -203,8 +236,23 @@ class PhoneBookViewController: UIViewController {
     }
     
     @objc
-    private func isTextEditingMode(sender: UITextField) {
-        
+    private func onClickSearchButton(sender: UIButton) {
+        if let token = KBProperty.token, let keyword = searchTextField.text {
+            let parameters: [String: Any] = [
+                selectedType.parameterName(): keyword,
+                "PAGE_NUM": "0"
+            ]
+            
+            let headers: HTTPHeaders = [
+                "Authorization": "Barear \(token)"
+            ]
+            
+            AF.request(selectedType.url(), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+                .responseJSON { response in
+                print(response)
+            }
+            
+        }
     }
 }
 

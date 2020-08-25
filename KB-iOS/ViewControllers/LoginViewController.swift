@@ -146,7 +146,11 @@ class ViewController: UIViewController {
         
         AF.request(loginURL, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON(completionHandler: { response in
-                print(response)
+//                print(response)
+                if let result = response.value as? [String: String] {
+                    print(result["token"] ?? "")
+                    KBProperty.token = result["token"]
+                }
                 LoginSwitcher.goToMainVC()
         })
     }

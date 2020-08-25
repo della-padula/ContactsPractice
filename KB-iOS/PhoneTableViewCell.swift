@@ -31,7 +31,9 @@ class PhoneTableViewCell: UITableViewCell {
     }
     
     @IBAction func onClickCall(_ sender: Any) {
-        
+        if let phoneNumber = item?.phoneNumber, let number = URL(string: "tel://" + phoneNumber) {
+            UIApplication.shared.open(number)
+        }
     }
     
 }

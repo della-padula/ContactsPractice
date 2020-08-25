@@ -11,6 +11,12 @@ import SnapKit
 import Alamofire
 import SwiftyJSON
 
+struct UserModel {
+    var name: String
+    var team: String
+    var phoneNumber: String
+}
+
 enum TabType {
     case name
     case job
@@ -35,6 +41,8 @@ enum TabType {
 }
 
 class PhoneBookViewController: UIViewController {
+    private var fetchedUserList: [UserModel] = [UserModel]()
+    
     private var selectedType: TabType = .name {
         didSet {
             if selectedType == .name {
@@ -97,6 +105,10 @@ class PhoneBookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMainLayout()
+        self.listTableView.tableFooterView = UIView()
+        self.listTableView.delegate = self
+        self.listTableView.dataSource = self
+        self.listTableView.register(UINib(nibName: "PhoneTableViewCell", bundle: nil), forCellReuseIdentifier: "phoneCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -207,8 +219,8 @@ class PhoneBookViewController: UIViewController {
         view.addSubview(listTableView)
         listTableView.snp.makeConstraints { make in
             make.top.equalTo(searchBottomBar.snp.bottom).offset(16)
-            make.left.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(-16)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
             make.bottom.equalToSuperview().offset(-16)
         }
         
@@ -239,6 +251,8 @@ class PhoneBookViewController: UIViewController {
     @objc
     private func onClickSearchButton(sender: UIButton) {
         if let token = KBProperty.token, let keyword = searchTextField.text {
+            fetchedUserList.removeAll()
+            
             let parameters: [String: Any] = [
                 selectedType.parameterName(): keyword,
                 "PAGE_NUM": "0"
@@ -253,12 +267,14 @@ class PhoneBookViewController: UIViewController {
                     switch response.result {
                     case .success(let value):
                         let json = JSON(value)
-                        json["contents"].arrayValue.forEach({ jsonObject in
-                            print(jsonObject["DEPT_NM"])
-                            print(jsonObject["USER_NM"])
-                            print(jsonObject["USER_HP"])
-                            print(jsonObject["USER_CD"])
-                        })
+                        for jsonObject in json["contents"].arrayValue {
+//                            print(jsonObject["DEPT_NM"])
+//                            print(jsonObject["USER_NM"])
+//                            print(jsonObject["USER_HP"])
+//                            print(jsonObject["USER_CD"])
+                            self.fetchedUserList.append(UserModel(name: jsonObject["USER_NM"].stringValue, team: jsonObject["DEPT_NM"].stringValue, phoneNumber: jsonObject["USER_HP"].stringValue))
+                        }
+                        self.listTableView.reloadData()
                     default: return
                     }
             }
@@ -268,11 +284,19 @@ class PhoneBookViewController: UIViewController {
 }
 
 extension PhoneBookViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return fetchedUserList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "phoneCell", for: indexPath) as? PhoneTableViewCell {
+            cell.item = fetchedUserList[indexPath.row]
+            return cell
+        }
         return UITableViewCell()
     }
 }

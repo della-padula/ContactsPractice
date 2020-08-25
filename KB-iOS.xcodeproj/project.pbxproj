@@ -19,6 +19,8 @@
 		B05165C424F53D760088FA51 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165C324F53D760088FA51 /* NavigationViewController.swift */; };
 		B05165C624F53DA90088FA51 /* LoginSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165C524F53DA90088FA51 /* LoginSwitcher.swift */; };
 		B0D7760624F54B59004A9E75 /* KBProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D7760524F54B59004A9E75 /* KBProperty.swift */; };
+		B0D7760B24F5549E004A9E75 /* PhoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D7760924F5549E004A9E75 /* PhoneTableViewCell.swift */; };
+		B0D7760C24F5549E004A9E75 /* PhoneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0D7760A24F5549E004A9E75 /* PhoneTableViewCell.xib */; };
 		B58023CCED21CD9D34623AE9 /* Pods_KB_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9491E2A5E1DBECB065FDB5E1 /* Pods_KB_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		B05165C324F53D760088FA51 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		B05165C524F53DA90088FA51 /* LoginSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSwitcher.swift; sourceTree = "<group>"; };
 		B0D7760524F54B59004A9E75 /* KBProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KBProperty.swift; sourceTree = "<group>"; };
+		B0D7760924F5549E004A9E75 /* PhoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTableViewCell.swift; sourceTree = "<group>"; };
+		B0D7760A24F5549E004A9E75 /* PhoneTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				B05165BC24F5335C0088FA51 /* UIFont+Custom.swift */,
 				B05165C524F53DA90088FA51 /* LoginSwitcher.swift */,
 				B0D7760524F54B59004A9E75 /* KBProperty.swift */,
+				B0D7760924F5549E004A9E75 /* PhoneTableViewCell.swift */,
+				B0D7760A24F5549E004A9E75 /* PhoneTableViewCell.xib */,
 			);
 			path = "KB-iOS";
 			sourceTree = "<group>";
@@ -177,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D7760C24F5549E004A9E75 /* PhoneTableViewCell.xib in Resources */,
 				B05165B324F52A4D0088FA51 /* LaunchScreen.storyboard in Resources */,
 				B05165B024F52A4D0088FA51 /* Assets.xcassets in Resources */,
 				B05165AE24F52A4C0088FA51 /* Main.storyboard in Resources */,
@@ -234,6 +241,7 @@
 			files = (
 				B05165C624F53DA90088FA51 /* LoginSwitcher.swift in Sources */,
 				B05165BB24F531C10088FA51 /* UIColor+Hex.swift in Sources */,
+				B0D7760B24F5549E004A9E75 /* PhoneTableViewCell.swift in Sources */,
 				B05165BD24F5335C0088FA51 /* UIFont+Custom.swift in Sources */,
 				B0D7760624F54B59004A9E75 /* KBProperty.swift in Sources */,
 				B05165AB24F52A4C0088FA51 /* LoginViewController.swift in Sources */,

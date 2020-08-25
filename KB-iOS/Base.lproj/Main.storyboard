@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVW-TU-IGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="873.21428571428567"/>
+            <point key="canvasLocation" x="1139" y="621"/>
         </scene>
         <!--설정-->
         <scene sceneID="Tlv-Ch-ZEb">
@@ -53,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vmK-ge-S6W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="1562"/>
+            <point key="canvasLocation" x="1139" y="1328"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="zsX-ic-tW2">

@@ -10,12 +10,14 @@ import UIKit
 
 class PhoneTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     
     public var item: UserModel? {
         didSet {
             titleLabel.text = "\(item?.name ?? "") / \(item?.team ?? "")"
             phoneLabel.text = item?.phoneNumber
+            jobLabel.text = item?.job
         }
     }
     

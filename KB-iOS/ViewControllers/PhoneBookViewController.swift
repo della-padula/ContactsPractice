@@ -15,6 +15,7 @@ struct UserModel {
     var name: String
     var team: String
     var phoneNumber: String
+    var job: String?
 }
 
 enum TabType {
@@ -272,7 +273,7 @@ class PhoneBookViewController: UIViewController {
 //                            print(jsonObject["USER_NM"])
 //                            print(jsonObject["USER_HP"])
 //                            print(jsonObject["USER_CD"])
-                            self.fetchedUserList.append(UserModel(name: jsonObject["USER_NM"].stringValue, team: jsonObject["DEPT_NM"].stringValue, phoneNumber: jsonObject["USER_HP"].stringValue))
+                            self.fetchedUserList.append(UserModel(name: jsonObject["USER_NM"].stringValue, team: jsonObject["DEPT_NM"].stringValue, phoneNumber: jsonObject["USER_HP"].stringValue, job: jsonObject["USER_JOB"].stringValue))
                         }
                         self.listTableView.reloadData()
                     default: return
@@ -284,9 +285,6 @@ class PhoneBookViewController: UIViewController {
 }
 
 extension PhoneBookViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedUserList.count

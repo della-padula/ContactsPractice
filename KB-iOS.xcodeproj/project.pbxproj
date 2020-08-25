@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B05165A724F52A4C0088FA51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165A624F52A4C0088FA51 /* AppDelegate.swift */; };
-		B05165AB24F52A4C0088FA51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165AA24F52A4C0088FA51 /* ViewController.swift */; };
+		B05165AB24F52A4C0088FA51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165AA24F52A4C0088FA51 /* LoginViewController.swift */; };
 		B05165AE24F52A4C0088FA51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05165AC24F52A4C0088FA51 /* Main.storyboard */; };
 		B05165B024F52A4D0088FA51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B05165AF24F52A4D0088FA51 /* Assets.xcassets */; };
 		B05165B324F52A4D0088FA51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05165B124F52A4D0088FA51 /* LaunchScreen.storyboard */; };
 		B05165BB24F531C10088FA51 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165BA24F531C10088FA51 /* UIColor+Hex.swift */; };
 		B05165BD24F5335C0088FA51 /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165BC24F5335C0088FA51 /* UIFont+Custom.swift */; };
+		B05165BF24F53CB60088FA51 /* PhoneBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165BE24F53CB60088FA51 /* PhoneBookViewController.swift */; };
+		B05165C124F53CC30088FA51 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165C024F53CC30088FA51 /* SettingsViewController.swift */; };
+		B05165C424F53D760088FA51 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165C324F53D760088FA51 /* NavigationViewController.swift */; };
+		B05165C624F53DA90088FA51 /* LoginSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05165C524F53DA90088FA51 /* LoginSwitcher.swift */; };
 		B58023CCED21CD9D34623AE9 /* Pods_KB_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9491E2A5E1DBECB065FDB5E1 /* Pods_KB_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,13 +27,17 @@
 		983E390073E20A3DCB2EF3B5 /* Pods-KB-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KB-iOS.release.xcconfig"; path = "Target Support Files/Pods-KB-iOS/Pods-KB-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B05165A324F52A4C0088FA51 /* KB-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KB-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05165A624F52A4C0088FA51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B05165AA24F52A4C0088FA51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B05165AA24F52A4C0088FA51 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B05165AD24F52A4C0088FA51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B05165AF24F52A4D0088FA51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B05165B224F52A4D0088FA51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B05165B424F52A4D0088FA51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B05165BA24F531C10088FA51 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		B05165BC24F5335C0088FA51 /* UIFont+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
+		B05165BE24F53CB60088FA51 /* PhoneBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookViewController.swift; sourceTree = "<group>"; };
+		B05165C024F53CC30088FA51 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B05165C324F53D760088FA51 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		B05165C524F53DA90088FA51 /* LoginSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSwitcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,16 +82,28 @@
 		B05165A524F52A4C0088FA51 /* KB-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B05165C224F53CCE0088FA51 /* ViewControllers */,
 				B05165A624F52A4C0088FA51 /* AppDelegate.swift */,
-				B05165AA24F52A4C0088FA51 /* ViewController.swift */,
 				B05165AC24F52A4C0088FA51 /* Main.storyboard */,
 				B05165AF24F52A4D0088FA51 /* Assets.xcassets */,
 				B05165B124F52A4D0088FA51 /* LaunchScreen.storyboard */,
 				B05165B424F52A4D0088FA51 /* Info.plist */,
 				B05165BA24F531C10088FA51 /* UIColor+Hex.swift */,
 				B05165BC24F5335C0088FA51 /* UIFont+Custom.swift */,
+				B05165C524F53DA90088FA51 /* LoginSwitcher.swift */,
 			);
 			path = "KB-iOS";
+			sourceTree = "<group>";
+		};
+		B05165C224F53CCE0088FA51 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B05165AA24F52A4C0088FA51 /* LoginViewController.swift */,
+				B05165BE24F53CB60088FA51 /* PhoneBookViewController.swift */,
+				B05165C024F53CC30088FA51 /* SettingsViewController.swift */,
+				B05165C324F53D760088FA51 /* NavigationViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		BA1322FECB07749F3568B70F /* Frameworks */ = {
@@ -209,10 +229,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B05165C624F53DA90088FA51 /* LoginSwitcher.swift in Sources */,
 				B05165BB24F531C10088FA51 /* UIColor+Hex.swift in Sources */,
 				B05165BD24F5335C0088FA51 /* UIFont+Custom.swift in Sources */,
-				B05165AB24F52A4C0088FA51 /* ViewController.swift in Sources */,
+				B05165AB24F52A4C0088FA51 /* LoginViewController.swift in Sources */,
 				B05165A724F52A4C0088FA51 /* AppDelegate.swift in Sources */,
+				B05165BF24F53CB60088FA51 /* PhoneBookViewController.swift in Sources */,
+				B05165C424F53D760088FA51 /* NavigationViewController.swift in Sources */,
+				B05165C124F53CC30088FA51 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

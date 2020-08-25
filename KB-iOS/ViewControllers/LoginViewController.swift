@@ -136,7 +136,19 @@ class ViewController: UIViewController {
     
     @objc
     private func onClickLogin(sender: UIButton) {
+        let loginURL = "http://3.131.52.2:3000/loginEZ"
+        let parameters: [String : Any] = [
+            "uid" : idField.text ?? "",
+            "password" : pwField.text ?? ""
+        ]
         
+        print("Request Login")
+        
+        AF.request(loginURL, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON(completionHandler: { response in
+                print(response)
+                LoginSwitcher.goToMainVC()
+        })
     }
     
     @objc

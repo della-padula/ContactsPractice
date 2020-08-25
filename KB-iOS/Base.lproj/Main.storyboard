@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,5 +23,80 @@
             </objects>
             <point key="canvasLocation" x="139" y="138"/>
         </scene>
+        <!--비상연락망-->
+        <scene sceneID="9Ey-8Z-O2r">
+            <objects>
+                <viewController id="UQu-Qa-h2h" customClass="PhoneBookViewController" customModule="KB_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mrG-S2-d7m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="plP-nV-guk"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="비상연락망" image="phone_un" selectedImage="phone" id="Ltu-0N-Etp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVW-TU-IGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="873.21428571428567"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="Tlv-Ch-ZEb">
+            <objects>
+                <viewController title="설정" id="Lla-Ec-7NB" customClass="SettingsViewController" customModule="KB_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VYp-pM-Lso">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="MY9-RZ-rs6"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="설정" image="setting_un" selectedImage="setting" id="A7H-Bk-etu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vmK-ge-S6W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="1562"/>
+        </scene>
+        <!--Navigation View Controller-->
+        <scene sceneID="zsX-ic-tW2">
+            <objects>
+                <navigationController storyboardIdentifier="mainNavigation" id="v4r-Mp-ggS" customClass="NavigationViewController" customModule="KB_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mne-Zi-DAS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZQU-yT-ZDl" kind="relationship" relationship="rootViewController" id="STi-Yx-VtH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOv-DX-jyJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-748" y="873"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="LkH-bX-n9x">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZQU-yT-ZDl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="VVc-i7-CGU"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Krx-z2-yk0">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.47450980392156861" green="0.42745098039215684" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="UQu-Qa-h2h" kind="relationship" relationship="viewControllers" id="RKg-B1-qE6"/>
+                        <segue destination="Lla-Ec-7NB" kind="relationship" relationship="viewControllers" id="DOx-ne-y5b"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5p-QK-Kgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="873.21428571428567"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="phone" width="18" height="18"/>
+        <image name="phone_un" width="18" height="18"/>
+        <image name="setting" width="19" height="20"/>
+        <image name="setting_un" width="19" height="20"/>
+    </resources>
 </document>

@@ -8,5 +8,5 @@ target 'KB-iOS' do
   # Pods for KB-iOS
   pod 'Alamofire'
   pod 'SwiftyJSON'
-
+  pod 'SnapKit'
 end

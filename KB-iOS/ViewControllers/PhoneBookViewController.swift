@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Alamofire
+import SwiftyJSON
 
 enum TabType {
     case name
@@ -249,34 +250,29 @@ class PhoneBookViewController: UIViewController {
             
             AF.request(selectedType.url(), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
                 .responseJSON { response in
-                print(response)
+                    switch response.result {
+                    case .success(let value):
+                        let json = JSON(value)
+                        json["contents"].arrayValue.forEach({ jsonObject in
+                            print(jsonObject["DEPT_NM"])
+                            print(jsonObject["USER_NM"])
+                            print(jsonObject["USER_HP"])
+                            print(jsonObject["USER_CD"])
+                        })
+                    default: return
+                    }
             }
             
         }
     }
 }
 
-public enum UIButtonBorderSide {
-    case top, bottom, left, right
-}
-
-extension UIView {
+extension PhoneBookViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
     
-    public func addBorder(side: UIButtonBorderSide, color: UIColor, width: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        
-        switch side {
-        case .top:
-            border.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: width)
-        case .bottom:
-            border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: width)
-        case .left:
-            border.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)
-        case .right:
-            border.frame = CGRect(x: self.frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
-        }
-        
-        self.layer.addSublayer(border)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }

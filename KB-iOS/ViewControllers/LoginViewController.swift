@@ -117,7 +117,7 @@ class ViewController: UIViewController {
         loginButton.snp.makeConstraints { make in
             make.height.equalTo(44)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-16)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
         }

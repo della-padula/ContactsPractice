@@ -43,6 +43,8 @@ enum TabType {
 
 class PhoneBookViewController: UIViewController {
     private var fetchedUserList: [UserModel] = [UserModel]()
+    private var page: Int = 0
+    private var fetchAvailable: Bool = true
     
     private var selectedType: TabType = .name {
         didSet {
@@ -251,12 +253,22 @@ class PhoneBookViewController: UIViewController {
     
     @objc
     private func onClickSearchButton(sender: UIButton) {
+        if fetchAvailable {
+            page = 0
+            requestList()
+        }
+    }
+    
+    private func requestList() {
+        fetchAvailable = false
         if let token = KBProperty.token, let keyword = searchTextField.text {
-            fetchedUserList.removeAll()
+            if page < 1 {
+                fetchedUserList.removeAll()
+            }
             
             let parameters: [String: Any] = [
                 selectedType.parameterName(): keyword,
-                "PAGE_NUM": "0"
+                "PAGE_NUM": "\(page)"
             ]
             
             let headers: HTTPHeaders = [
@@ -269,12 +281,9 @@ class PhoneBookViewController: UIViewController {
                     case .success(let value):
                         let json = JSON(value)
                         for jsonObject in json["contents"].arrayValue {
-//                            print(jsonObject["DEPT_NM"])
-//                            print(jsonObject["USER_NM"])
-//                            print(jsonObject["USER_HP"])
-//                            print(jsonObject["USER_CD"])
                             self.fetchedUserList.append(UserModel(name: jsonObject["USER_NM"].stringValue, team: jsonObject["DEPT_NM"].stringValue, phoneNumber: jsonObject["USER_HP"].stringValue, job: jsonObject["USER_JOB"].stringValue))
                         }
+                        self.fetchAvailable = true
                         self.listTableView.reloadData()
                     default: return
                     }
@@ -288,6 +297,15 @@ extension PhoneBookViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedUserList.count
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == fetchedUserList.count - 3 {
+            if fetchAvailable {
+                page += 1
+                requestList()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

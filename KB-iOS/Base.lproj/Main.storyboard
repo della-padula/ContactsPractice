@@ -49,7 +49,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="suF-D1-fzz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="메인" id="Wmc-SN-cRi"/>
+                    <tabBarItem key="tabBarItem" title="메인" image="main_un" selectedImage="main" id="Wmc-SN-cRi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKY-p9-WXN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,7 +65,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="dMu-Dp-TY1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="조회" id="Jk5-kS-gKW"/>
+                    <tabBarItem key="tabBarItem" title="조회" image="setting_un" selectedImage="setting" id="Jk5-kS-gKW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2h-dB-zOX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,6 +128,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="main" width="24" height="24"/>
+        <image name="main_un" width="24" height="24"/>
         <image name="phone" width="18" height="18"/>
         <image name="phone_un" width="18" height="18"/>
         <image name="setting" width="19" height="20"/>
